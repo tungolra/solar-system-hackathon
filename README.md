@@ -22,9 +22,21 @@ For the frontend, we used:
 - React
 - Tailwind CSS
 
+### Instructions to run the app
+
+1. You can first run the developement server using 
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+2. Now open [http://localhost:3000](http://localhost:3000) with your browser to see the webpage
+
 ---
-
-
 
 ---
 
