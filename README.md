@@ -1,3 +1,33 @@
+## Solar System Quackathon
+
+Welcome to the frontend page of our Solar System application created as a part of the #DearJuniorDev Hackathon. Our team has created a single page application for exploring our solar system. This project uses [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
+
+### Backend API
+
+Our backend API can be accessed at <https://solar-system-hackathon-backend.herokuapp.com> 
+
+and found at <https://github.com/matthewcsimpson/Solar-System-Hackathon-Backend>
+
+## Project Team Members:
+
+- Matthew Simpson - <https://github.com/matthewcsimpson>
+- Ralph Tuñgol - <https://github.com/tungolra>
+- Nikhil Koganti - <https://github.com/Nikhil-Koganti>
+
+## Tech Stack
+
+For the frontend, we used:
+
+- Next.js
+- React
+- Tailwind CSS
+
+---
+
+
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -36,4 +66,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# solar-system-hackathon
