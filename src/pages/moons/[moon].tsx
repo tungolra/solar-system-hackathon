@@ -23,6 +23,7 @@ interface MoonPageProps {
   moon: Moon;
 }
 export default function MoonPage({ moon }: MoonPageProps) {
+  console.log(moon)
   return (
     <div>
       <h1>{moon.englishName}</h1>

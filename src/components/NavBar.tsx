@@ -13,14 +13,14 @@ export default function NavBar() {
     },
     {
       title: "The Sun",
-      path: "/sun",
+      path: "/stars/sun",
     },
   ];
   return (
     <div>
       {links.map((link) => {
         return (
-          <Link key={link.title} href={link.path}>
+          <Link key={link.title} href={link.path} className="text-white">
             <div>
               <h2>{link.title} &rarr;</h2>
             </div>

@@ -1,12 +1,33 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "@/styles/Home.module.css";
-import Link from "next/link";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import NavBar from "@/components/NavBar";
+import SolarSystem from "../images/solar-system.svg";
+import { getStellarOverview } from "@/api/api";
+import { GetStaticProps } from "next";
 
-export default function Home() {
+interface StarData {
+  star: {
+    star_id: string;
+    englishName: string;
+    meanRadius: number; // mean radius distance in km
+  }[];
+}
+
+interface PlanetData {
+  planets: {
+    planet_id: string;
+    englishName: string;
+    meanRadius: number; // mean radius in km
+  }[];
+}
+
+interface StellarProps {
+  star: StarData;
+  planets: PlanetData;
+}
+
+export default function Home({ star, planets }: StellarProps) {
+ 
   return (
     <>
       <Head>
@@ -15,11 +36,31 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <div>
+      <main className="h-screen">
+        <div className="h-20 bg-slate-500">
           <NavBar />
         </div>
+        <section className="h-60 bg-slate-300">
+          <div>Planet</div>
+          <div>Sun</div>
+        </section>
+        <section className="h-20 bg-black">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+          voluptatum sunt ipsam commodi cupiditate consequatur possimus non,
+          consequuntur odio illo dolorem laboriosam unde labore enim, nam
+          veritatis sed porro! Repellendus.
+        </section>
       </main>
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps<StellarProps> = async () => {
+  const { star, planets } = await getStellarOverview();
+  return {
+    props: {
+      star,
+      planets,
+    },
+  };
+};
