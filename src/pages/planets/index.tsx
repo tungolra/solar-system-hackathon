@@ -2,7 +2,7 @@ import React from "react";
 import { getStellarData } from "../../api/api";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Grid.module.css";
 
 interface Planet {
   planet_id: string;

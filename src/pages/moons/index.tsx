@@ -2,7 +2,7 @@ import React from "react";
 import { getStellarData } from "../../api/api";
 import Link from "next/link";
 import { GetStaticProps } from "next";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Grid.module.css";
 
 interface Moon {
   moon_id: string;
