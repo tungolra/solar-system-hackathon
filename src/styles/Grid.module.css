@@ -14,9 +14,11 @@
 }
 
 .moon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    display: flex;
+    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
     gap: 1rem;
+    justify-items: center;
+    align-items: center;
 }
 
 .moon-item {
@@ -25,4 +27,12 @@
     padding: 1rem;
     border-radius: 0.5rem;
     cursor: pointer;
+    margin: 0.5rem;
+    transition: all 0.25s ease-in-out;
 }
+  
+.moon-item:hover {
+    background-color: #fff;
+    color: #333;
+}
+  
