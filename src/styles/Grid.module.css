@@ -5,12 +5,18 @@
 }
 
 .grid-item {
-    background-color: white;
-    color: black;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: #1F2937;
+    color: #fff;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: all 0.25s ease-in-out;
+}
+
+.grid-item:hover {
+    background-color: #fff;
+    color: #1F2937;
 }
 
 .moon-grid {
@@ -22,9 +28,9 @@
 }
 
 .moon-item {
-    background-color: #333;
+    background-color: #1F2937;
     color: #fff;
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 0.5rem;
     cursor: pointer;
     margin: 0.5rem;
@@ -33,6 +39,6 @@
   
 .moon-item:hover {
     background-color: #fff;
-    color: #333;
+    color: #1F2937;
 }
   

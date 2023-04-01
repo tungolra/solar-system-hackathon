@@ -43,7 +43,7 @@ export default function MoonsPage({ moons }: MoonsProps) {
                 <div className="moon-grid flex flex-wrap justify-start items-center">
                   {planetMoons.slice(0, showCount).map((moon) => (
                     <Link key={moon.moon_id} href={`/moons/${moon.moon_id}`}>
-                      <div className={`${styles["moon-item"]} bg-gray-700 hover:bg-gray-300 hover:text-black rounded-lg p-8`} style={{ transition: "all 0.2s ease-in-out", flex: 1, padding: '0.7rem'}}>
+                      <div className={`${styles["moon-item"]}`}>
                         <h3 className="text-center">{moon.englishName}</h3>
                       </div>
                     </Link>

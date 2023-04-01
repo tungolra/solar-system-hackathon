@@ -20,16 +20,16 @@ export default function PlanetsDirectory({ planets }: PlanetProps) {
         <h1 className="font-bold text-lg text-white mb-4">Planets Directory</h1>
         <section className={`relative flex-1 ${styles.grid} grid grid-cols-3 gap-6`}>
           {planets.map((planet) => (
-            <div key={planet.planet_id} className="grid-item bg-gray-800 rounded-lg p-8 grid-col span-2">
-              <Link href={`planets/${planet.planet_id}`} className="text-white flex justify-center">{planet.englishName}</Link>
-            </div>
+            <Link key={planet.planet_id} href={`planets/${planet.planet_id}`}>
+              <div className={`${styles["grid-item"]}`}>
+                <div className="flex justify-center">{planet.englishName}</div>
+              </div>
+            </Link>
           ))}
         </section>
       </div>
     </main>
-  );
-  
-  
+  );  
 }
 
 export const getStaticProps: GetStaticProps<PlanetProps> = async () => {
