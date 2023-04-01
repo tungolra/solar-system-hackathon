@@ -2,10 +2,15 @@ import Head from "next/head";
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
 import SolarSystem from "../images/solar-system.svg";
+import MilkyWay from "../images/milkyway.png";
 import { getStellarOverview } from "@/api/api";
 import { GetStaticProps } from "next";
+import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 
 interface StarData {
+  [x: string]: any;
+  map(arg0: (star: any) => void): unknown;
   star: {
     star_id: string;
     englishName: string;
@@ -14,6 +19,8 @@ interface StarData {
 }
 
 interface PlanetData {
+  // map(arg0: (planet: any) => void): unknown;
+
   planets: {
     planet_id: string;
     englishName: string;
@@ -26,8 +33,41 @@ interface StellarProps {
   planets: PlanetData;
 }
 
-export default function Home({ star, planets }: StellarProps) {
- 
+interface ColourStyle {
+  [key: string]: string | null;
+}
+
+export default function Home({
+  star,
+  planets,
+}: {
+  star: StarData[];
+  planets: PlanetData[];
+}) {
+  const colourStyles: ColourStyle[] = [
+    { Mercury: "linear-gradient(to right, #6B7280, #4B5563)" || null },
+    { Venus: "linear-gradient(to right, #6B7280, #8B5D33)" || null },
+    { Earth: "linear-gradient(to right, #34D399, #3B82F6)" || null },
+    { Mars: "linear-gradient(to right, #EF4444, #8B5D33)" || null },
+    { Jupiter: "linear-gradient(to right, #8B5D33, #F59E0B)" || null },
+    { Saturn: "linear-gradient(to right, #FBBF24, #22D3EE)" || null },
+    { Uranus: "linear-gradient(to right, #22D3EE, #3B82F6)" || null },
+    { Pluto: "linear-gradient(to right, #22D3EE, #10B981)" || null },
+    { Neptune: "linear-gradient(to right, #3B82F6, #1D4ED8)" || null },
+    { Haumea: "linear-gradient(to right, #22D3EE, #3B82F6)" || null },
+    { Makemake: "linear-gradient(to right, #22D3EE, #3B82F6)" || null },
+    { Eris: "linear-gradient(to right, #22D3EE, #3B82F6)" || null },
+  ];
+  // function renderStellar(obj: any, type: string) {
+  //   return obj.map((item: any) => (
+  //     <div
+  //       key={item.englishName}
+  //       className={`${styles.stellarObject} ${styles[type]} flex justify-center items-center`}
+  //       style={{ "--mean-radius": `${item.meanRadius}px` }}
+  //     ></div>
+  //   ));
+  // }
+
   return (
     <>
       <Head>
@@ -36,19 +76,49 @@ export default function Home({ star, planets }: StellarProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen">
+      <main className="h-screen flex flex-col">
         <div className="h-20 bg-slate-500">
           <NavBar />
         </div>
-        <section className="h-60 bg-slate-300">
-          <div>Planet</div>
-          <div>Sun</div>
+        <section
+          className={` bg-gradient-to-br from-black to-slate-700 flex-1 -z-50`}
+        >
+          <div className={`${styles.star} flex justify-center items-center`}>
+            {/* {renderStellar(star, "star")} */}
+            {star.map((item: any) => (
+              <div
+                key={item.englishName}
+                className={`${styles.stellarObject} ${styles.star} -z-20 my-4`}
+                style={
+                  {
+                    "--mean-radius": `${item.meanRadius}px`,
+                  } as React.CSSProperties
+                }
+              >
+                {item.englishName}
+              </div>
+            ))}
+          </div>
+          <div
+            className="flex flex-row absolute top-0 left-0 w-full h-full justify-center items-center"
+            style={{ zIndex: -10 }}
+          >
+            {planets.map((item: any, idx: number) => (
+              <div
+                key={item.englishName}
+                className={`${styles.stellarObject} ${styles.planet} mx-5`}
+                style={
+                  {
+                    "--mean-radius": `${item.meanRadius}px`,
+                    background: `${colourStyles[idx][item.englishName]}`,
+                  } as React.CSSProperties
+                }
+              ></div>
+            ))}
+          </div>
         </section>
-        <section className="h-20 bg-black">
+        <section className="h-20 bg-slate-700 flex-shrink-0">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
-          voluptatum sunt ipsam commodi cupiditate consequatur possimus non,
-          consequuntur odio illo dolorem laboriosam unde labore enim, nam
-          veritatis sed porro! Repellendus.
         </section>
       </main>
     </>
