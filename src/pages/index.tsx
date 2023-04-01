@@ -76,49 +76,58 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen flex flex-col">
-        <div className="h-20 bg-slate-500">
+      <main className="h-screen flex flex-col font-mono relative">
+        <div className="bg-gradient-to-b from-black to-slate-700 flex-1">
           <NavBar />
         </div>
-        <section
-          className={` bg-gradient-to-br from-black to-slate-700 flex-1 -z-50`}
-        >
+        <section className={` relative flex-1`}>
+          <div className="h-full w-screen -z-50 absolute bg-gradient-to-br from-black to-slate-700"></div>
           <div className={`${styles.star} flex justify-center items-center`}>
-            {/* {renderStellar(star, "star")} */}
             {star.map((item: any) => (
               <div
                 key={item.englishName}
-                className={`${styles.stellarObject} ${styles.star} -z-20 my-4`}
+                className={`${styles.stellarObject} ${styles.star} z-10 my-4`}
                 style={
                   {
                     "--mean-radius": `${item.meanRadius}px`,
-                  } as React.CSSProperties
-                }
-              >
-                {item.englishName}
-              </div>
-            ))}
-          </div>
-          <div
-            className="flex flex-row absolute top-0 left-0 w-full h-full justify-center items-center"
-            style={{ zIndex: -10 }}
-          >
-            {planets.map((item: any, idx: number) => (
-              <div
-                key={item.englishName}
-                className={`${styles.stellarObject} ${styles.planet} mx-5`}
-                style={
-                  {
-                    "--mean-radius": `${item.meanRadius}px`,
-                    background: `${colourStyles[idx][item.englishName]}`,
                   } as React.CSSProperties
                 }
               ></div>
             ))}
           </div>
+          <div className="flex flex-row absolute top-0 left-0 w-full h-full justify-center items-center z-20">
+            {planets.map((item: any, idx: number) => (
+              <Link href={`/planets/${item.planet_id}`}>
+                <div
+                  key={item.englishName}
+                  className={`${styles.stellarObject} ${styles.planet} mx-5`}
+                  style={
+                    {
+                      "--mean-radius": `${
+                        item.meanRadius < 3000
+                          ? "4000px"
+                          : item.meanRadius < 10000
+                          ? `${item.meanRadius * 2}px`
+                          : `${item.meanRadius}px`
+                      }`,
+                      background: `${colourStyles[idx][item.englishName]}`,
+                    } as React.CSSProperties
+                  }
+                >
+                  {" "}
+                  <span className="opacity-0 hover:opacity-100 flex items-center justify-center text-white z-20">
+                    {item.englishName}
+                    {console.log(item.meanRadius)}
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
-        <section className="h-20 bg-slate-700 flex-shrink-0">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+        <section className="h-20 bg-gradient-to-t from-black to-slate-700 flex-1 flex-shrink-0 text-white text-center flex justify-center">
+          <p className="self-center typing-animation">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+          </p>
         </section>
       </main>
     </>
