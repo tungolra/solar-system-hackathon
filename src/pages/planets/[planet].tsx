@@ -25,7 +25,7 @@ interface PlanetPageProps {
 }
 
 export default function PlanetPage({ planet }: PlanetPageProps) {
-  console.log(planet)
+
   return (
     <div>
       <h1>PlanetPage</h1>

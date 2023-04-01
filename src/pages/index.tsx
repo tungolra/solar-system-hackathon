@@ -97,9 +97,8 @@ export default function Home({
           </div>
           <div className="flex flex-row absolute top-0 left-0 w-full h-full justify-center items-center z-20">
             {planets.map((item: any, idx: number) => (
-              <Link href={`/planets/${item.planet_id}`}>
+              <Link key={item.englishName} href={`/planets/${item.planet_id}`}>
                 <div
-                  key={item.englishName}
                   className={`${styles.stellarObject} ${styles.planet} mx-5`}
                   style={
                     {
@@ -117,7 +116,6 @@ export default function Home({
                   {" "}
                   <span className="opacity-0 hover:opacity-100 flex items-center justify-center text-white z-20">
                     {item.englishName}
-                    {console.log(item.meanRadius)}
                   </span>
                 </div>
               </Link>
