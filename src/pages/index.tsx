@@ -7,6 +7,7 @@ import { getStellarOverview } from "@/api/api";
 import { GetStaticProps } from "next";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
+import Layout from "@/components/Layout";
 
 interface StarData {
   [x: string]: any;
@@ -76,12 +77,8 @@ export default function Home({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-screen flex flex-col font-mono relative">
-        <div className="bg-gradient-to-b from-black to-slate-700 flex-1">
-          <NavBar />
-        </div>
+      <Layout title="Home Page">
         <section className={` relative flex-1`}>
-          <div className="h-full w-screen -z-50 absolute bg-gradient-to-br from-black to-slate-700"></div>
           <div className={`${styles.star} flex justify-center items-center`}>
             {star.map((item: any) => (
               <div
@@ -122,12 +119,12 @@ export default function Home({
             ))}
           </div>
         </section>
-        <section className="h-20 bg-gradient-to-t from-black to-slate-700 flex-1 flex-shrink-0 text-white text-center flex justify-center">
-          <p className="self-center typing-animation">
+        <section className="h-20 flex-1 flex-shrink-0 text-white text-center flex justify-center">
+          <p className="self-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
           </p>
         </section>
-      </main>
+      </Layout>
     </>
   );
 }

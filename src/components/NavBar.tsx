@@ -17,11 +17,11 @@ export default function NavBar() {
     },
   ];
   return (
-    <div>
+    <div className="flex justify-center items-center h-20">
       {links.map((link) => {
         return (
           <Link key={link.title} href={link.path} className="text-white">
-            <div>
+            <div className="px-5">
               <h2>{link.title} &rarr;</h2>
             </div>
           </Link>

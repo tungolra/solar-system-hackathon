@@ -1,0 +1,6 @@
+.stellarObject {
+    width: 50vmin;
+    height: 50vmin;
+    border-radius: 50%;
+    box-shadow: 0px 0px 45px #8a7e7e;
+  }
