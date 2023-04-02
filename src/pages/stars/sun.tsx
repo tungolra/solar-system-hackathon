@@ -5,7 +5,6 @@ import Layout from "@/components/Layout";
 import styles from "@/styles/DetailsPage.module.css";
 import { formatString } from "@/utils/formatString";
 
-
 interface StarProps {
   star_id: string;
   englishName: string;
@@ -19,19 +18,21 @@ interface RenderTableProps {
 }
 
 export default function StarsPage(starProps: StarProps) {
-
   const RenderTable: React.FC<RenderTableProps> = ({ obj }) => {
     return (
       <table className="table-auto ">
-        <tbody>
-          {Object.entries(obj).map((item: any) =>
-            typeof item[1] === "number" ? (
-              <tr key={item[0]}>
-                <td className="p-2">{formatString(item[0])}</td>
-                <td className="break-words">{item[1]}</td>
-              </tr>
-            ) : null
-          )}
+        <tbody className="text-white flex flex-col">
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Mass</td>
+            <td>
+              {obj?.massValue} x 10<sup>{obj?.massExponent}</sup>kg
+            </td>
+          </tr>
+
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Mean Radius</td>
+            <td>{`${obj?.meanRadius.toLocaleString()}km`}</td>
+          </tr>
         </tbody>
       </table>
     );
@@ -55,7 +56,7 @@ export default function StarsPage(starProps: StarProps) {
   };
 
   return (
-     <Layout title={`${starProps.englishName}`}>
+    <Layout title={`${starProps.englishName}`}>
       <main className="flex flex-col font-mono relative flex-grow">
         <div className="flex flex-row h-full">
           <section className="rounded-lg w-1/5 m-5 border border-white text-white flex flex-col justify-center items-center my-auto ">
@@ -68,7 +69,7 @@ export default function StarsPage(starProps: StarProps) {
               className={`${styles.stellarObject}`}
               style={{
                 background: "linear-gradient(45deg, #ffeb3b, #ff9800, #f44336)",
-                boxShadow: "0px 0px 45px #ff9933"
+                boxShadow: "0px 0px 45px #ff9933",
               }}
             ></div>
           </section>

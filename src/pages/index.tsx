@@ -5,6 +5,7 @@ import { GetStaticProps } from "next";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import Favicon from "@/images/app-favicon.svg";
 
 interface StarData {
   [x: string]: any;
@@ -61,7 +62,7 @@ export default function Home({
         <title>Cosmic Classroom</title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="../images/app-favicon.svg" />
+        <link rel="icon" href="/images/app-favicon.svg" />
       </Head>
       <Layout title="Home Page">
         <section className={` relative flex-1`}>
