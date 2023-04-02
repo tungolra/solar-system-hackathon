@@ -73,15 +73,42 @@ export default function PlanetPage({ planet }: PlanetPageProps) {
   const RenderTable: React.FC<RenderTableProps> = ({ obj }) => {
     return (
       <table className="table-auto ">
-        <tbody>
-          {Object.entries(obj).map((item: any) =>
-            typeof item[1] === "number" ? (
-              <tr key={item[0]}>
-                <td className="p-2">{formatString(item[0])}</td>
-                <td className="break-words">{item[1]}</td>
-              </tr>
-            ) : null
-          )}
+        <tbody className="text-white flex flex-col">
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Gravity</td>
+            <td>{`${obj?.gravity}N`}</td>
+          </tr>
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Aphelion</td>
+            <td>{`${obj?.aphelion.toLocaleString()}AU`}</td>
+          </tr>
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Perihelion</td>
+            <td>{`${obj?.perihelion.toLocaleString()}AU`}</td>
+          </tr>
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Inclination</td>
+            <td>{`${obj?.inclination}`}&deg;</td>
+          </tr>
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Mass</td>
+            <td>
+              {obj?.massValue} x 10<sup>{obj?.massExponent}</sup>kg
+            </td>
+          </tr>
+
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Mean Radius</td>
+            <td>{`${obj?.meanRadius.toLocaleString()}km`}</td>
+          </tr>
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Sideral Orbit</td>
+            <td>{`${obj?.sideralOrbit} days`}</td>
+          </tr>
+          <tr className="flex flex-col ">
+            <td className="underline font-bold">Sideral Rotation</td>
+            <td>{`${obj?.sideralRotation} hours`}</td>
+          </tr>
         </tbody>
       </table>
     );

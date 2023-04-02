@@ -37,15 +37,50 @@ export default function MoonPage({ moon }: MoonPageProps) {
   const RenderTable: React.FC<RenderTableProps> = ({ obj }) => {
     return (
       <table className="table-auto ">
-        <tbody>
-          {Object.entries(obj).map((item: any) =>
-            typeof item[1] === "number" ? (
-              <tr key={item[0]}>
-                <td className="p-2">{formatString(item[0])}</td>
-                <td className="break-words">{item[1]}</td>
-              </tr>
-            ) : null
-          )}
+        <tbody className="text-white flex flex-col">
+          <tr className="flex flex-col">
+            <td className="underline font-bold">Aphelion</td>
+            <td className="">
+              {obj.aphelion < 1 ? "N/A" : `${obj?.aphelion.toLocaleString()}AU`}
+            </td>
+          </tr>
+          <tr className="flex flex-col">
+            <td className="underline font-bold">Periphelion</td>
+            <td className="">
+              {obj?.perphelion < 1 || obj?.periphelion == undefined
+                ? "N/A"
+                : `${obj?.periphelion?.toLocaleString()}AU`}
+            </td>
+          </tr>
+          <tr className="flex flex-col">
+            <td className="underline font-bold">Inclination</td>
+            <td className="">{obj?.inclination}&deg;</td>
+          </tr>
+          <tr className="flex flex-col">
+            <td className="underline font-bold">Mass</td>
+            <td className="">
+              {" "}
+              {obj?.massValue?.toLocaleString()} x 10
+              <sup>{obj?.massExponent}</sup>kg
+            </td>
+          </tr>
+          <tr className="flex flex-col">
+            <td className="underline font-bold">Mean Radius</td>
+            <td className="">
+              {obj?.meanRadius === 0
+                ? "N/A"
+                : obj?.meanRadius?.toLocaleString()}
+              km
+            </td>
+          </tr>
+          <tr className="flex flex-col">
+            <td className="underline font-bold">Sideral Orbit</td>
+            <td className="">{obj?.sideralOrbit}</td>
+          </tr>
+          <tr className="flex flex-col">
+            <td className="underline font-bold">Sideral Rotation</td>
+            <td className="">{obj?.sideralRotation}</td>
+          </tr>
         </tbody>
       </table>
     );

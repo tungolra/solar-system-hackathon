@@ -1,3 +1,4 @@
+
 ## Solar System Quackathon
 
 Welcome to the frontend page of our Solar System application created as a part of the #DearJuniorDev Hackathon. Our team has created a single page application for exploring our solar system. This project uses [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
@@ -11,7 +12,8 @@ Welcome to the frontend page of our Solar System application created as a part o
 
 ### Contributors
 
-- Ralph Tungol | [GitHub](https://github.com/tungolra) | [LinkedIn]()
+
+- Ralph Tungol | [GitHub](https://github.com/tungolra) | [LinkedIn](https://github.com/tungolra)
 - Matthew Simpson | [GitHub](https://github.com/matthewcsimpson)| [LinkedIn](https://www.linkedin.com/in/matthewcsimpson)
 - Nikhil Koganti | [GitHub](https://github.com/Nikhil-Koganti) | [LinkedIn](https://www.linkedin.com/in/nikhil-koganti)
 
@@ -45,7 +47,10 @@ This project was originally built as part of a #DearJuniorDev Hackahon, in which
 
 <hr/>
 
+
 <!-- ### Pages
 #### Planets
 #### Moons
 #### Stars -->
+
+
