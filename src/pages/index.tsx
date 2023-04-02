@@ -55,7 +55,6 @@ export default function Home({
     { Eris: "linear-gradient(to right, #22D3EE, #3B82F6)" || null },
   ];
 
-
   return (
     <>
       <Head>
@@ -107,8 +106,8 @@ export default function Home({
           </div>
         </section>
         <section className="h-20 flex-1 flex-shrink-0 text-white text-center flex justify-center">
-          <p className="self-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
+          <p className="self-center text-xl">
+            Welcome to our Solar System. Start by clicking on any planets!
           </p>
         </section>
       </Layout>
