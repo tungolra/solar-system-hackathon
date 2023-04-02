@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { getObjectData, getStellarData } from "../../api/api";
 import Layout from "@/components/Layout";
 import styles from "@/styles/DetailsPage.module.css";
+import { formatString } from "@/utils/formatString";
 
 type Moon = {
   map(arg0: (obj: any) => void): unknown;
@@ -33,23 +34,6 @@ interface RenderTableProps {
 }
 
 export default function MoonPage({ moon }: MoonPageProps) {
-  function formatString(str: string): string {
-    let result = "";
-
-    // capitalize the first letter
-    result = str.charAt(0).toUpperCase() + str.slice(1);
-
-    // add a space before any capitalized letter
-    for (let i = 1; i < result.length; i++) {
-      if (result.charAt(i) === result.charAt(i).toUpperCase()) {
-        result = result.slice(0, i) + " " + result.slice(i);
-        i++;
-      }
-    }
-
-    return result;
-  }
-
   const RenderTable: React.FC<RenderTableProps> = ({ obj }) => {
     return (
       <table className="table-auto ">
