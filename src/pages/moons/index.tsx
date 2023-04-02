@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { getStellarData } from "../../api/api";
 import Link from "next/link";
 import { GetStaticProps } from "next";
+import styles from "@/styles/Grid.module.css";
+import Layout from "@/components/Layout";
 
 interface Moon {
   moon_id: string;
   englishName: string;
-  planet_id: string;
+  planetEnglishName: string;
 }
 
 interface MoonsProps {
@@ -15,10 +17,10 @@ interface MoonsProps {
 
 function groupMoonsByPlanet(moons: Moon[]) {
   return moons.reduce((acc, moon) => {
-    if (acc[moon.planet_id]) {
-      acc[moon.planet_id].push(moon);
+    if (acc[moon.planetEnglishName]) {
+      acc[moon.planetEnglishName].push(moon);
     } else {
-      acc[moon.planet_id] = [moon];
+      acc[moon.planetEnglishName] = [moon];
     }
     return acc;
   }, {} as { [key: string]: Moon[] });
@@ -27,26 +29,61 @@ function groupMoonsByPlanet(moons: Moon[]) {
 export default function MoonsPage({ moons }: MoonsProps) {
   const groupedMoons = groupMoonsByPlanet(moons);
 
+  const [showCounts, setShowCounts] = useState<{ [key: string]: number }>(
+    Object.keys(groupedMoons).reduce(
+      (acc, planetId) => ({
+        ...acc,
+        [planetId]: 20,
+      }),
+      {}
+    )
+  );
+
+  const handleShowMore = (planetId: string) => {
+    setShowCounts((counts) => ({
+      ...counts,
+      [planetId]: counts[planetId] + 10,
+    }));
+  };
+
   return (
-    <div className="w-80">
-      <h1>Moons</h1>
-      {Object.entries(groupedMoons).map(([planetId, planetMoons]) => (
-        <div key={planetId}>
-          <Link href={`/planets/${planetId}`} className="font-bold text-lg">
-            {planetId}
-          </Link>
-          <ul className="flex flex-row">
-            {planetMoons.map((moon) => (
-              <li key={moon.moon_id}>
-                <Link href={`/moons/${moon.moon_id}`}>
-                  <h3>{moon.englishName}</h3>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+    <Layout title="Moons Directory">
+      <section className={`relative flex-1 text-white w-4/5 mx-auto`}>
+        {Object.entries(groupedMoons).sort().map(([planetId, planetMoons]) => {
+          const showCount = showCounts[planetId];
+          return (
+            <div key={planetId} className="text-center">
+              <Link
+                href={`/planets/${planetId}`}
+                className="font-bold text-xl uppercase px-4 tracking-wider "
+              >
+                {planetId}
+              </Link>
+              <div className="moon-grid flex flex-wrap justify-center items-center mb-5">
+                {planetMoons.slice(0, showCount).map((moon) => (
+                  <Link key={moon.moon_id} href={`/moons/${moon.moon_id}`}>
+                    <div className={`${styles["moon-item"]}`}>
+                      <h3 className="text-center">{moon.englishName}</h3>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              {planetMoons.length > showCount && (
+                <div className="flex justify-center mt-4 mb-4">
+                  <button
+                    className="px-4 py-2 rounded-md bg-yellow-600 text-white hover:bg-sky-300 hover:text-black"
+                    onClick={() => handleShowMore(planetId)}
+                    style={{ transition: "all 0.2s ease-in-out" }}
+                  >
+                    See more
+                  </button>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </section>
+    </Layout>
   );
 }
 

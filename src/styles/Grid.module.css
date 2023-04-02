@@ -1,0 +1,44 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+.grid-item {
+    background-color: #1F2937;
+    color: #fff;
+    padding: 3rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: all 0.25s ease-in-out;
+}
+
+.grid-item:hover {
+    background-color: #fff;
+    color: #1F2937;
+}
+
+.moon-grid {
+    display: flex;
+    grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.moon-item {
+    background-color: #1F2937;
+    color: #fff;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: all 0.25s ease-in-out;
+}
+  
+.moon-item:hover {
+    background-color: #fff;
+    color: #1F2937;
+}
+  
