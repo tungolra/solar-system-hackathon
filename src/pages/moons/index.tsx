@@ -27,6 +27,22 @@ function groupMoonsByPlanet(moons: Moon[]) {
 
 export default function MoonsPage({ moons }: MoonsProps) {
   const groupedMoons = groupMoonsByPlanet(moons);
+  const [showCounts, setShowCounts] = useState<{ [key: string]: number }>(
+    Object.keys(groupedMoons).reduce(
+      (acc, planetId) => ({
+        ...acc,
+        [planetId]: 20,
+      }),
+      {}
+    )
+  );
+
+  const handleShowMore = (planetId: string) => {
+    setShowCounts((counts) => ({
+      ...counts,
+      [planetId]: counts[planetId] + 10,
+    }));
+  };
 
   return (
     <main className="h-screen flex flex-col font-mono relative">
@@ -34,7 +50,7 @@ export default function MoonsPage({ moons }: MoonsProps) {
         <h1 className="font-bold text-lg text-white mb-4">Moons Directory</h1>
         <section className={`relative flex-1 text-white`}>
           {Object.entries(groupedMoons).map(([planetId, planetMoons]) => {
-            const [showCount, setShowCount] = useState(20);
+            const showCount = showCounts[planetId];
             return (
               <div key={planetId}>
                 <Link href={`/planets/${planetId}`} className="font-bold text-lg">
@@ -53,8 +69,8 @@ export default function MoonsPage({ moons }: MoonsProps) {
                   <div className="flex justify-center mt-4">
                     <button
                       className="px-4 py-2 rounded-md bg-yellow-600 text-white hover:bg-sky-300 hover:text-black"
-                      onClick={() => setShowCount(showCount => showCount + 10)}
-                      style={{transition: "all 0.2s ease-in-out"}}
+                      onClick={() => handleShowMore(planetId)}
+                      style={{ transition: "all 0.2s ease-in-out" }}
                     >
                       See more
                     </button>
@@ -66,7 +82,7 @@ export default function MoonsPage({ moons }: MoonsProps) {
         </section>
       </div>
     </main>
-  );  
+  );
 }
 
 export const getStaticProps: GetStaticProps<MoonsProps> = async () => {
