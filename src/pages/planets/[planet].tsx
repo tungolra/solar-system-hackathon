@@ -147,7 +147,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const planet = await getObjectData("planet", params?.planet as string);
   return {
     props: {
-      planet,
+      planet: planet || null,
     },
   };
 };

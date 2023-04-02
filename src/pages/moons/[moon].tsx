@@ -111,5 +111,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const moon = await getObjectData("moon", params?.moon as string);
 
-  return { props: { moon } };
+  return {
+    props: {
+      moon: moon || null,
+    },
+  };
 };

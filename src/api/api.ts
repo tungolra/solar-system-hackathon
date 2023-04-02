@@ -15,6 +15,7 @@ export async function getStellarOverview() {
 export async function getStellarData(endpoint: string) {
   try {
     const response = await axios.get(`${API_BASE_URL}/${endpoint}`);
+    
     return response.data;
   } catch (error) {
     console.log(error);
