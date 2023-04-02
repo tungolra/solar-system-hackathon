@@ -122,7 +122,7 @@ export default function PlanetPage({ planet }: PlanetPageProps) {
             typeof item[1] !== "number" && !item[0].includes("_") ? (
               <React.Fragment key={item[0]}>
                 <tr className="font-bold underline">{formatString(item[0])}</tr>
-                <tr>{item[1]}</tr>
+                <tr>{item[1] === "" ? "N/A" : item[1]}</tr>
               </React.Fragment>
             ) : null
           )}
