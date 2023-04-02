@@ -1,8 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import NavBar from "@/components/NavBar";
-import SolarSystem from "../images/solar-system.svg";
-import MilkyWay from "../images/milkyway.png";
 import { getStellarOverview } from "@/api/api";
 import { GetStaticProps } from "next";
 import styles from "@/styles/Home.module.css";
@@ -20,8 +17,6 @@ interface StarData {
 }
 
 interface PlanetData {
-  // map(arg0: (planet: any) => void): unknown;
-
   planets: {
     planet_id: string;
     englishName: string;
@@ -59,23 +54,15 @@ export default function Home({
     { Makemake: "linear-gradient(to right, #22D3EE, #3B82F6)" || null },
     { Eris: "linear-gradient(to right, #22D3EE, #3B82F6)" || null },
   ];
-  // function renderStellar(obj: any, type: string) {
-  //   return obj.map((item: any) => (
-  //     <div
-  //       key={item.englishName}
-  //       className={`${styles.stellarObject} ${styles[type]} flex justify-center items-center`}
-  //       style={{ "--mean-radius": `${item.meanRadius}px` }}
-  //     ></div>
-  //   ));
-  // }
+
 
   return (
     <>
       <Head>
-        <title>Solar System Quackathon</title>
+        <title>Cosmic Classroom</title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="../images/app-favicon.svg" />
       </Head>
       <Layout title="Home Page">
         <section className={` relative flex-1`}>

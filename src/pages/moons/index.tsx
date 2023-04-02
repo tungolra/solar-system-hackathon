@@ -3,11 +3,12 @@ import { getStellarData } from "../../api/api";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import styles from "@/styles/Grid.module.css";
+import Layout from "@/components/Layout";
 
 interface Moon {
   moon_id: string;
   englishName: string;
-  planet_id: string;
+  planetEnglishName: string;
 }
 
 interface MoonsProps {
@@ -16,10 +17,10 @@ interface MoonsProps {
 
 function groupMoonsByPlanet(moons: Moon[]) {
   return moons.reduce((acc, moon) => {
-    if (acc[moon.planet_id]) {
-      acc[moon.planet_id].push(moon);
+    if (acc[moon.planetEnglishName]) {
+      acc[moon.planetEnglishName].push(moon);
     } else {
-      acc[moon.planet_id] = [moon];
+      acc[moon.planetEnglishName] = [moon];
     }
     return acc;
   }, {} as { [key: string]: Moon[] });
@@ -27,6 +28,7 @@ function groupMoonsByPlanet(moons: Moon[]) {
 
 export default function MoonsPage({ moons }: MoonsProps) {
   const groupedMoons = groupMoonsByPlanet(moons);
+
   const [showCounts, setShowCounts] = useState<{ [key: string]: number }>(
     Object.keys(groupedMoons).reduce(
       (acc, planetId) => ({
@@ -45,43 +47,43 @@ export default function MoonsPage({ moons }: MoonsProps) {
   };
 
   return (
-    <main className="h-screen flex flex-col font-mono relative">
-      <div className="bg-gradient-to-b from-black to-slate-700 flex-1 flex flex-col justify-start items-center p-8">
-        <h1 className="font-bold text-lg text-white mb-4">Moons Directory</h1>
-        <section className={`relative flex-1 text-white`}>
-          {Object.entries(groupedMoons).map(([planetId, planetMoons]) => {
-            const showCount = showCounts[planetId];
-            return (
-              <div key={planetId}>
-                <Link href={`/planets/${planetId}`} className="font-bold text-lg">
-                  {planetId}
-                </Link>
-                <div className="moon-grid flex flex-wrap justify-start items-center">
-                  {planetMoons.slice(0, showCount).map((moon) => (
-                    <Link key={moon.moon_id} href={`/moons/${moon.moon_id}`}>
-                      <div className={`${styles["moon-item"]}`}>
-                        <h3 className="text-center">{moon.englishName}</h3>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-                {planetMoons.length > showCount && (
-                  <div className="flex justify-center mt-4">
-                    <button
-                      className="px-4 py-2 rounded-md bg-yellow-600 text-white hover:bg-sky-300 hover:text-black"
-                      onClick={() => handleShowMore(planetId)}
-                      style={{ transition: "all 0.2s ease-in-out" }}
-                    >
-                      See more
-                    </button>
-                  </div>
-                )}
+    <Layout title="Moons Directory">
+      <section className={`relative flex-1 text-white w-4/5 mx-auto`}>
+        {Object.entries(groupedMoons).sort().map(([planetId, planetMoons]) => {
+          const showCount = showCounts[planetId];
+          return (
+            <div key={planetId} className="text-center">
+              <Link
+                href={`/planets/${planetId}`}
+                className="font-bold text-xl uppercase px-4 tracking-wider "
+              >
+                {planetId}
+              </Link>
+              <div className="moon-grid flex flex-wrap justify-center items-center mb-5">
+                {planetMoons.slice(0, showCount).map((moon) => (
+                  <Link key={moon.moon_id} href={`/moons/${moon.moon_id}`}>
+                    <div className={`${styles["moon-item"]}`}>
+                      <h3 className="text-center">{moon.englishName}</h3>
+                    </div>
+                  </Link>
+                ))}
               </div>
-            );
-          })}
-        </section>
-      </div>
-    </main>
+              {planetMoons.length > showCount && (
+                <div className="flex justify-center mt-4 mb-4">
+                  <button
+                    className="px-4 py-2 rounded-md bg-yellow-600 text-white hover:bg-sky-300 hover:text-black"
+                    onClick={() => handleShowMore(planetId)}
+                    style={{ transition: "all 0.2s ease-in-out" }}
+                  >
+                    See more
+                  </button>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </section>
+    </Layout>
   );
 }
 

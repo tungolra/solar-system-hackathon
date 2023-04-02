@@ -8,13 +8,13 @@ type LayoutProps = {
 
 export default function Layout({ title, children }: LayoutProps) {
   return (
-    <main className="h-screen flex flex-col font-mono relative">
+    <main className="min-h-screen flex flex-col font-mono relative">
       <div className="h-full w-screen -z-50 absolute bg-gradient-to-br from-black to-slate-700"></div>
       <div>
         <NavBar />
       </div>
       <div className="flex justify-center items-center">
-        <h2 className="text-white text-2xl uppercase font-bold tracking-widest">
+        <h2 className="text-white text-2xl uppercase font-bold tracking-widest underline mb-4">
           {title}
         </h2>
       </div>
