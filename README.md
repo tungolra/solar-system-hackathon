@@ -100,3 +100,14 @@ Homepage:
 -- Homepage content does not need to be stored in a database and can be coded into your components &#9745;
 
 ## Screenshots
+
+Homepage<img width="1440" alt="Screenshot 2023-04-03 at 12 17 31 AM" src="https://user-images.githubusercontent.com/29378136/229438358-2c77194f-7234-475d-993a-e9933a12400b.png">
+
+Planets<img width="1440" alt="Screenshot 2023-04-03 at 12 18 49 AM" src="https://user-images.githubusercontent.com/29378136/229438608-46f5501d-ade3-4db9-b625-82e2fa75ddd3.png">
+
+Moons<img width="1440" alt="Screenshot 2023-04-03 at 12 19 40 AM" src="https://user-images.githubusercontent.com/29378136/229438735-c87760b3-c659-4427-b1cc-ff3124b7526b.png">
+
+<!-- ![homepage](https://user-images.githubusercontent.com/95717139/223176364-9d5689d0-e33c-4786-9a2e-a144041378c9.png)
+Planets
+![planets](https://user-images.githubusercontent.com/95717139/223176416-76c9417b-04bf-4fa9-949a-3accb6066f65.png)
+Moons -->
