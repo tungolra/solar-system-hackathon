@@ -81,16 +81,22 @@ Planets:
 
 Backend:
 
--- You must use foreign keys.
--- Planets and Moons must be stored separate from one another.
--- You must incorporate one ENUM for the planet data.
+-- You must use foreign keys &#9745;
+
+-- Planets and Moons must be stored separate from one another &#9745;
+
+-- You must incorporate one ENUM for the planet data &#9745;
+> We used this for the planet type (Dwarf, Gas giant, Terrestrial)
 
 Homepage:
 
--- The homepage should be an overview of the solar system.
--- The data included will be up to each team.
--- The homepage must include at least two components that are NOT used on any planet page.
--- Homepage content does not need to be stored in a database and can be coded into your components.
+-- The homepage should be an overview of the solar system &#9745;
+-- The data included will be up to each team
+> We just included the planet names along with an overview text that shows what the app is
 
+-- The homepage must include at least two components that are NOT used on any planet page &#9745;
+> We have the image of the galaxy in the background with the planets in the front rendered in CSS
+
+-- Homepage content does not need to be stored in a database and can be coded into your components &#9745;
 
 ## Screenshots
