@@ -28,6 +28,7 @@ The frontend page of our Solar System application created as a part of the #Dear
 - [Next.js](https://nextjs.org/)
 - [React](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
+- CSS/TSX/HTML
 
 #### Backend:
 
