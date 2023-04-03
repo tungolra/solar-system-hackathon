@@ -76,15 +76,15 @@ export default function PlanetPage({ planet }: PlanetPageProps) {
         <tbody className="text-white flex flex-col">
           <tr className="flex flex-col ">
             <td className="underline font-bold">Gravity</td>
-            <td>{`${obj?.gravity}N`}</td>
+            <td>{`${obj?.gravity} N`}</td>
           </tr>
           <tr className="flex flex-col ">
             <td className="underline font-bold">Aphelion</td>
-            <td>{`${obj?.aphelion.toLocaleString()}AU`}</td>
+            <td>{`${obj?.aphelion.toLocaleString()} kms`}</td>
           </tr>
           <tr className="flex flex-col ">
             <td className="underline font-bold">Perihelion</td>
-            <td>{`${obj?.perihelion.toLocaleString()}AU`}</td>
+            <td>{`${obj?.perihelion.toLocaleString()} kms`}</td>
           </tr>
           <tr className="flex flex-col ">
             <td className="underline font-bold">Inclination</td>
@@ -93,13 +93,13 @@ export default function PlanetPage({ planet }: PlanetPageProps) {
           <tr className="flex flex-col ">
             <td className="underline font-bold">Mass</td>
             <td>
-              {obj?.massValue} x 10<sup>{obj?.massExponent}</sup>kg
+              {obj?.massValue} x 10<sup>{obj?.massExponent}</sup> kg
             </td>
           </tr>
 
           <tr className="flex flex-col ">
             <td className="underline font-bold">Mean Radius</td>
-            <td>{`${obj?.meanRadius.toLocaleString()}km`}</td>
+            <td>{`${obj?.meanRadius.toLocaleString()} km`}</td>
           </tr>
           <tr className="flex flex-col ">
             <td className="underline font-bold">Sideral Orbit</td>

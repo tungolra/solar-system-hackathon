@@ -41,7 +41,7 @@ export default function MoonPage({ moon }: MoonPageProps) {
           <tr className="flex flex-col">
             <td className="underline font-bold">Aphelion</td>
             <td className="">
-              {obj.aphelion < 1 ? "N/A" : `${obj?.aphelion.toLocaleString()}AU`}
+              {obj.aphelion < 1 ? "N/A" : `${obj?.aphelion.toLocaleString()} kms`}
             </td>
           </tr>
           <tr className="flex flex-col">
@@ -49,7 +49,7 @@ export default function MoonPage({ moon }: MoonPageProps) {
             <td className="">
               {obj?.perphelion < 1 || obj?.periphelion == undefined
                 ? "N/A"
-                : `${obj?.periphelion?.toLocaleString()}AU`}
+                : `${obj?.periphelion?.toLocaleString()} kms`}
             </td>
           </tr>
           <tr className="flex flex-col">
@@ -61,7 +61,7 @@ export default function MoonPage({ moon }: MoonPageProps) {
             <td className="">
               {" "}
               {obj?.massValue?.toLocaleString()} x 10
-              <sup>{obj?.massExponent}</sup>kg
+              <sup>{obj?.massExponent}</sup> kg
             </td>
           </tr>
           <tr className="flex flex-col">
@@ -69,17 +69,16 @@ export default function MoonPage({ moon }: MoonPageProps) {
             <td className="">
               {obj?.meanRadius === 0
                 ? "N/A"
-                : obj?.meanRadius?.toLocaleString()}
-              km
+                : obj?.meanRadius?.toLocaleString()} km
             </td>
           </tr>
           <tr className="flex flex-col">
             <td className="underline font-bold">Sideral Orbit</td>
-            <td className="">{obj?.sideralOrbit}</td>
+            <td className="">{obj?.sideralOrbit} days</td>
           </tr>
           <tr className="flex flex-col">
             <td className="underline font-bold">Sideral Rotation</td>
-            <td className="">{obj?.sideralRotation}</td>
+            <td className="">{obj?.sideralRotation} hrs</td>
           </tr>
         </tbody>
       </table>
