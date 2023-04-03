@@ -1,56 +1,55 @@
+# Cosmic Classroom
 
-## Solar System Quackathon
+A single page application for exploring the various planets and moons that are in our solar system. You can click on any of the planets or discover planets and moons in the directory pages (links in app navbar).
 
-Welcome to the frontend page of our Solar System application created as a part of the #DearJuniorDev Hackathon. Our team has created a single page application for exploring our solar system. This project uses [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/).
+The frontend page of our Solar System application created as a part of the #DearJuniorDev Quackathon.
 
-### Links
+## Live Demo: [Click me!](https://cosmicclassroom.vercel.app/)
 
-[View Site](https://solar-system-hackathon.vercel.app/)
-[Link to Frontend Repo](https://github.com/tungolra/solar-system-hackathon)
-[View Backend API](https://solar-system-hackathon-backend.herokuapp.com/)
-[Link to Backend Repo](https://github.com/matthewcsimpson/Solar-System-Hackathon-Backend)
+## Other Links
 
-### Contributors
+[Link to Frontend Repo](https://github.com/tungolra/solar-system-hackathon)| [View Backend API](https://solar-system-hackathon-backend.herokuapp.com/)| [Link to Backend Repo](https://github.com/matthewcsimpson/Solar-System-Hackathon-Backend)
 
+Special shoutout to [The Solar System OpenData](https://api.le-systeme-solaire.net/en/) for providing source api
+
+
+## Contributors
 
 - Ralph Tungol | [GitHub](https://github.com/tungolra) | [LinkedIn](https://github.com/tungolra)
-- Matthew Simpson | [GitHub](https://github.com/matthewcsimpson)| [LinkedIn](https://www.linkedin.com/in/matthewcsimpson)
+- Matthew Simpson | [GitHub](https://github.com/matthewcsimpson) | [LinkedIn](https://www.linkedin.com/in/matthewcsimpson)
 - Nikhil Koganti | [GitHub](https://github.com/Nikhil-Koganti) | [LinkedIn](https://www.linkedin.com/in/nikhil-koganti)
+
 
 ## Tech Stack
 
-For the frontend, we used:
+#### Frontend:
 
-- Next.js
-- React
-- Tailwind CSS
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-### Instructions to run the app
+#### Backend:
 
-1. You can first run the developement server using
+ - Node.js
+ - Express.js
+ - MySQL
+ - [Knex.js](https://knexjs.org/)
+ - JSON
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+
+## Run app locally
+
+To run it, do:
+
+```javascript
+$> git clone https://github.com/tungolra/solar-system-hackathon.git
+$> cd nextapp
+$>  npm install
+$>  npm run dev
 ```
 
-2. Now open [http://localhost:3000](http://localhost:3000) with your browser to see the webpage
+That’s it! The project is now running on [http://localhost:3000](http://localhost:3000) in your browser. The calls to the backend API are automatically handled in the code.
 
-<hr/>
+## Quackathon Requirements
 
-### About
-
-This project was originally built as part of a #DearJuniorDev Hackahon, in which each team had a week to build a web app that teaches about the solar system.
-
-<hr/>
-
-
-<!-- ### Pages
-#### Planets
-#### Moons
-#### Stars -->
-
-
+## Screenshots
