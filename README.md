@@ -65,7 +65,7 @@ Planets:
 > We have included all of the above for each planet page along with gravity, inclination, mass, sideral orbit and sideral rotation
 
 -- NOTE: No images, assets, emojis, or SVGs are permitted. The visual representation of each planet must be made ENTIRELY out of CSS &#9745;
-> We have created all our planets using tailwind CSS
+> We have created all our planets using CSS
 
 -- If the planet has a moon, you must display the following information for every moon (Name, history behind name, and size) &#9745;
 > We are displaying the required information along with Aphelion, Perihelion, inclination, mass, sideral orbit and sideral rotation
