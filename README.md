@@ -16,7 +16,7 @@ The frontend page of our Solar System application created as a part of the #Dear
 
 ## Contributors
 
-- Ralph Tungol | [GitHub](https://github.com/tungolra) | [LinkedIn](https://github.com/tungolra)
+- Ralph Tungol | [GitHub](https://github.com/tungolra) | [LinkedIn](https://linkedin.com/in/ralph-tungol)
 - Matthew Simpson | [GitHub](https://github.com/matthewcsimpson) | [LinkedIn](https://www.linkedin.com/in/matthewcsimpson)
 - Nikhil Koganti | [GitHub](https://github.com/Nikhil-Koganti) | [LinkedIn](https://www.linkedin.com/in/nikhil-koganti)
 
